@@ -1,0 +1,9 @@
+sudo: requires
+services:
+  - docker
+
+before_install:
+  - docker build -f Dockerfile.dev -t limar/docker-react .
+
+script:
+  - docker run limar/frontenddev env CI=1 npm test
